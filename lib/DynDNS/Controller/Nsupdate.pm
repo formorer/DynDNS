@@ -15,7 +15,7 @@ sub update {
 
   my $fqdn = "$hostname.$zone.";
 
-  my $hmac = hmac_sha1_hex($fqdn, $hmac_key);
+  my $hmac = hmac_sha1_hex($hostname, $hmac_key);
   my $hmac_given = $self->param('key') || '';
   $self->app->log->debug("$hmac vs $hmac_given");
   if ($hmac ne $hmac_given) {
