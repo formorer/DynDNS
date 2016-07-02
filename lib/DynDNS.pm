@@ -31,7 +31,7 @@ sub startup {
       die "config invalid " . $validator->errstr() . "\n";
   }
   # Normal route to controller
-  $r->get('/update/#hostname/#ip')->to('nsupdate#update', ip => undef);
+  $r->get('/update/:hostname/#ip')->to('nsupdate#update', ip => undef);
 }
 
 1;
